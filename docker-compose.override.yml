@@ -1,0 +1,12 @@
+services:
+  scheduler:
+    volumes:
+      - C:/Users/Admin/Desktop/WebTran_Downloads:/usr/local/airflow/desktop_downloads
+
+  api-server:
+    volumes:
+      - C:/Users/Admin/Desktop/WebTran_Downloads:/usr/local/airflow/desktop_downloads
+
+  dag-processor:
+    volumes:
+      - C:/Users/Admin/Desktop/WebTran_Downloads:/usr/local/airflow/desktop_downloads

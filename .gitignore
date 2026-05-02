@@ -1,0 +1,23 @@
+# Arquivos sensíveis
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Downloads e dados
+include/downloads/
+desktop_downloads/
+
+# Arquivos pesados
+*.zip
+*.parquet
+
+# Ambiente virtual
+.venv/
+
+# Sistema
+.DS_Store
