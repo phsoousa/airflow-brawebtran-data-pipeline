@@ -20,7 +20,7 @@ Fluxo completo:
 
 Extração → Transformação → Armazenamento → Visualização
 
-## 🧠 Desenho do Projeto
+## 🧠 Project Design / Desenho do Projeto
 
 <p align="center">
   <img src="docs/webtran-card.png" alt="Desenho do Projeto" width="800"/>
