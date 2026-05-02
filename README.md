@@ -1,45 +1,171 @@
-Overview
-========
+# 🚀 WebTran Data Pipeline (Airflow + Selenium + Pandas + Power BI)
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
+---
 
-Project Contents
-================
+## 🇺🇸 About the Project
 
-Your Astro project contains the following files and folders:
+This project implements a complete Data Engineering pipeline, automating file extraction from a web portal, transforming the data, and making it available for analysis in Power BI.
 
-- dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes one example DAG:
-    - `example_astronauts`: This DAG shows a simple ETL pipeline example that queries the list of astronauts currently in space from the Open Notify API and prints a statement for each astronaut. The DAG uses the TaskFlow API to define tasks in Python, and dynamic task mapping to dynamically print a statement for each astronaut. For more on how this DAG works, see our [Getting started tutorial](https://www.astronomer.io/docs/learn/get-started-with-airflow).
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
-- include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
-- packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
-- requirements.txt: Install Python packages needed for your project by adding them to this file. It is empty by default.
-- plugins: Add custom or community plugins for your project to this file. It is empty by default.
-- airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+End-to-end flow:
 
-Deploy Your Project Locally
-===========================
+Extraction → Transformation → Storage → Visualization
 
-Start Airflow on your local machine by running 'astro dev start'.
+---
 
-This command will spin up five Docker containers on your machine, each for a different Airflow component:
+## 🇧🇷 Sobre o Projeto
 
-- Postgres: Airflow's Metadata Database
-- Scheduler: The Airflow component responsible for monitoring and triggering tasks
-- DAG Processor: The Airflow component responsible for parsing DAGs
-- API Server: The Airflow component responsible for serving the Airflow UI and API
-- Triggerer: The Airflow component responsible for triggering deferred tasks
+Este projeto implementa um pipeline completo de Engenharia de Dados, automatizando a extração de arquivos de um portal web, realizando o tratamento dos dados e disponibilizando para análise no Power BI.
 
-When all five containers are ready the command will open the browser to the Airflow UI at http://localhost:8080/. You should also be able to access your Postgres Database at 'localhost:5432/postgres' with username 'postgres' and password 'postgres'.
+Fluxo completo:
 
-Note: If you already have either of the above ports allocated, you can either [stop your existing Docker containers or change the port](https://www.astronomer.io/docs/astro/cli/troubleshoot-locally#ports-are-not-available-for-my-local-airflow-webserver).
+Extração → Transformação → Armazenamento → Visualização
 
-Deploy Your Project to Astronomer
-=================================
+---
 
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://www.astronomer.io/docs/astro/deploy-code/
+## 🧱 Architecture / Arquitetura
 
-Contact
-=======
+Web Portal  
+↓  
+Selenium (Automation)  
+↓  
+Apache Airflow (Orchestration)  
+↓  
+Pandas (Data Transformation)  
+↓  
+CSV / Parquet Files  
+↓  
+Power BI (Dashboard)
 
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
+---
+
+## ⚙️ Technologies / Tecnologias
+
+- Python  
+- Selenium  
+- Apache Airflow (Astro CLI)  
+- Pandas  
+- Docker  
+- Power BI  
+- Git/GitHub  
+
+---
+
+## 🔄 Pipeline
+
+### 🇺🇸
+- Automated access to the web portal  
+- Download of ZIP files  
+- Automatic extraction  
+- Processing TXT files  
+- Data transformation with Pandas  
+- Duplicate removal  
+- Column standardization  
+- Generation of clean datasets  
+
+### 🇧🇷
+- Automação de acesso ao portal  
+- Download de arquivos ZIP  
+- Extração automática  
+- Leitura de arquivos TXT  
+- Tratamento de dados com Pandas  
+- Remoção de duplicados  
+- Padronização de colunas  
+- Geração de dados tratados  
+
+---
+
+## 🕒 Scheduling / Agendamento
+
+schedule="0 10 * * 1-5"
+
+Runs on weekdays at 10 AM.  
+Executa em dias úteis às 10h.
+
+---
+
+## 📊 Dashboard
+
+![Dashboard](docs/dashboard.png)
+
+---
+
+## 📂 Project Structure / Estrutura do Projeto
+
+airflow-bradesco/  
+├── dags/  
+│   └── roda_script.py  
+├── include/  
+│   └── scripts/  
+│       ├── download.py  
+│       └── transform.py  
+├── docs/  
+│   └── dashboard.png  
+├── Dockerfile  
+├── requirements.txt  
+├── .env.example  
+└── README.md  
+
+---
+
+## 🔐 Security / Segurança
+
+### 🇺🇸
+Credentials are not stored in the code.
+
+### 🇧🇷
+As credenciais não ficam no código.
+
+Environment variables / Variáveis de ambiente:
+
+WEBTRAN_USER  
+WEBTRAN_PASS  
+WEBTRAN_CODTRAN  
+
+---
+
+## ▶️ How to Run / Como Executar
+
+git clone https://github.com/phsoousa/airflow-brawebtran-data-pipeline.git  
+cd airflow-brawebtran-data-pipeline  
+astro dev start  
+
+Access Airflow:  
+http://localhost:8080  
+
+Run DAG:  
+webtran_pipeline  
+
+---
+
+## ✅ Expected Result / Resultado Esperado
+
+WebTran_Downloads/  
+└── YYYY-MM-DD/  
+    ├── original_file.zip  
+    ├── extracted/  
+    └── processed/  
+        ├── dados_tratados.csv  
+        └── dados_tratados.parquet  
+
+---
+
+## 💡 Learnings / Aprendizados
+
+### 🇺🇸
+- Workflow orchestration with Airflow  
+- Web automation with Selenium  
+- Data transformation with Pandas  
+- Data preparation for BI  
+
+### 🇧🇷
+- Orquestração com Airflow  
+- Automação com Selenium  
+- Tratamento com Pandas  
+- Estruturação de dados para BI  
+
+---
+
+## 👨‍💻 Author / Autor
+
+Pedro Henrique Sousa  
+Data Engineer in transition 🚀
